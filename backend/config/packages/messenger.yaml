@@ -1,0 +1,13 @@
+framework:
+    messenger:
+        transports:
+            async:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                retry_strategy:
+                    max_retries: 3
+                    delay: 1000
+
+        routing:
+            'App\Message\PriceImportMessage': async
+            'App\Message\PublishProductMessage': async
+            'App\Message\CalculateMarginMessage': async

@@ -1,0 +1,7 @@
+hooks:
+  post-start:
+    - exec: cd /var/www/html/backend && mkdir -p config/jwt && php bin/console lexik:jwt:generate-keypair --no-interaction || true
+    - exec: cd /var/www/html/backend && php bin/console doctrine:database:create --if-not-exists || true
+    - exec: cd /var/www/html/backend && php bin/console doctrine:migrations:migrate --no-interaction || true
+  post-composer:
+    - exec: cd /var/www/html/frontend && npm install --no-audit --no-fund || true

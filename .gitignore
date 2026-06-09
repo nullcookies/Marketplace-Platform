@@ -1,0 +1,9 @@
+/backend/var/
+/backend/vendor/
+/backend/.env.local
+/backend/config/jwt/
+/frontend/node_modules/
+/frontend/dist/
+.idea/
+*.log
+.DS_Store
