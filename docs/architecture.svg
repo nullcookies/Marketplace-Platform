@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6A1B9A"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E65100"/>
+    </marker>
+
+    <linearGradient id="g-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="g-green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#66BB6A"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="g-amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFB74D"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <linearGradient id="g-purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CE93D8"/>
+      <stop offset="100%" stop-color="#6A1B9A"/>
+    </linearGradient>
+    <linearGradient id="g-red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EF5350"/>
+      <stop offset="100%" stop-color="#C62828"/>
+    </linearGradient>
+    <linearGradient id="g-teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4DB6AC"/>
+      <stop offset="100%" stop-color="#00695C"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+
+    <style>
+      @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+      @keyframes dash { to { stroke-dashoffset: -20; } }
+      @keyframes slideUp { 0% { transform: translateY(8px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+      @keyframes glowPulse { 0%,100% { filter: drop-shadow(0 0 3px rgba(106,27,154,0.3)); } 50% { filter: drop-shadow(0 0 10px rgba(106,27,154,0.7)); } }
+      .arrow-flow { stroke-dasharray: 6 4; animation: dash 0.8s linear infinite; }
+      .pulse { animation: pulse 2s ease-in-out infinite; }
+      .pulse-delay { animation: pulse 2s ease-in-out 0.5s infinite; }
+      .pulse-slow { animation: pulse 3s ease-in-out 1s infinite; }
+      .box { transition: all 0.2s; }
+      .box:hover { filter: brightness(1.15); }
+      .fade-in { animation: slideUp 0.6s ease-out; }
+      .glow-pulse { animation: glowPulse 2s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">Marketplace Platform — Process Flow</text>
+  <text x="550" y="55" text-anchor="middle" font-size="12" fill="#888">Price &amp; Product Card Management for WB / Ozon / Yandex.Market</text>
+
+  <!-- ===== PHASE 1: AUTH ===== -->
+  <rect x="40" y="75" width="1020" height="95" rx="8" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1.5"/>
+  <rect x="40" y="75" width="16" height="95" rx="8" fill="url(#g-blue)"/>
+  <text x="65" y="95" font-size="13" font-weight="bold" fill="#1565C0">1. Authentication</text>
+
+  <g class="fade-in">
+    <rect x="70" y="110" width="120" height="44" rx="22" fill="#fff" stroke="#555" stroke-width="2" filter="url(#shadow)"/>
+    <text x="130" y="137" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">User</text>
+  </g>
+
+  <line x1="190" y1="132" x2="240" y2="132" stroke="#1565C0" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-blue)"/>
+  <text x="215" y="125" text-anchor="middle" font-size="9" fill="#1565C0">POST</text>
+
+  <g class="fade-in">
+    <rect x="240" y="110" width="150" height="44" rx="8" fill="url(#g-blue)" stroke="#1565C0" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="315" y="133" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">POST /api/login</text>
+    <text x="315" y="148" text-anchor="middle" font-size="10" fill="#E3F2FD">JWT Authentication</text>
+  </g>
+
+  <line x1="390" y1="132" x2="460" y2="132" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="425" y="125" text-anchor="middle" font-size="9" fill="#1565C0">token</text>
+
+  <g class="fade-in">
+    <rect x="460" y="108" width="180" height="48" rx="8" fill="#fff" stroke="#1565C0" stroke-width="1.5" stroke-dasharray="4" filter="url(#shadow)"/>
+    <text x="550" y="133" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565C0">API Client</text>
+    <text x="550" y="148" text-anchor="middle" font-size="10" fill="#666">Authorization: Bearer {token}</text>
+  </g>
+
+  <line x1="640" y1="132" x2="710" y2="132" stroke="#1565C0" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-blue)"/>
+
+  <g class="fade-in pulse">
+    <rect x="710" y="110" width="120" height="44" rx="8" fill="#C8E6C9" stroke="#4CAF50" stroke-width="1.5"/>
+    <text x="770" y="133" text-anchor="middle" font-size="12" font-weight="bold" fill="#2E7D32">✓ Logged in</text>
+    <text x="770" y="148" text-anchor="middle" font-size="10" fill="#2E7D32">ROLE_ADMIN</text>
+  </g>
+
+  <!-- ===== PHASE 2: DASHBOARD & PRODUCTS ===== -->
+  <rect x="40" y="185" width="1020" height="175" rx="8" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1.5"/>
+  <rect x="40" y="185" width="16" height="175" rx="8" fill="url(#g-green)"/>
+  <text x="65" y="205" font-size="13" font-weight="bold" fill="#2E7D32">2. Product Management</text>
+
+  <g class="fade-in">
+    <rect x="70" y="220" width="130" height="50" rx="8" fill="url(#g-teal)" stroke="#00695C" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="135" y="245" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Dashboard</text>
+    <text x="135" y="260" text-anchor="middle" font-size="10" fill="#B2DFDB">Vue 3 + Pinia</text>
+  </g>
+
+  <line x1="200" y1="245" x2="250" y2="245" stroke="#2E7D32" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-green)"/>
+
+  <g class="fade-in">
+    <rect x="250" y="220" width="170" height="50" rx="8" fill="url(#g-green)" stroke="#2E7D32" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="335" y="243" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Products</text>
+    <text x="335" y="258" text-anchor="middle" font-size="10" fill="#C8E6C9">GET/POST /api/products</text>
+  </g>
+
+  <line x1="420" y1="235" x2="470" y2="235" stroke="#2E7D32" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <line x1="420" y1="255" x2="470" y2="255" stroke="#2E7D32" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <g class="fade-in">
+    <rect x="470" y="218" width="100" height="28" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width="1"/>
+    <text x="520" y="236" text-anchor="middle" font-size="10" fill="#F57F17">Products (DB)</text>
+    <rect x="470" y="250" width="100" height="28" rx="4" fill="#FFF9C4" stroke="#F9A825" stroke-width="1"/>
+    <text x="520" y="268" text-anchor="middle" font-size="10" fill="#F57F17">Prices (DB)</text>
+  </g>
+
+  <g class="fade-in pulse-delay">
+    <rect x="620" y="220" width="120" height="50" rx="8" fill="#FFCC80" stroke="#EF6C00" stroke-width="1" filter="url(#shadow)"/>
+    <text x="680" y="243" text-anchor="middle" font-size="11" font-weight="bold" fill="#E65100">CSV Import</text>
+    <text x="680" y="260" text-anchor="middle" font-size="9" fill="#333">POST /api/import_tasks</text>
+  </g>
+
+  <line x1="570" y1="245" x2="620" y2="245" stroke="#E65100" stroke-width="1.5" class="arrow-flow" marker-end="url(#arrow-amber)"/>
+
+  <g class="fade-in">
+    <rect x="620" y="295" width="120" height="45" rx="6" fill="url(#g-amber)" stroke="#E65100" stroke-width="1" filter="url(#shadow)"/>
+    <text x="680" y="318" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">ImportService</text>
+    <text x="680" y="333" text-anchor="middle" font-size="9" fill="#FFE0B2">Parse &amp; Save</text>
+  </g>
+
+  <line x1="680" y1="270" x2="680" y2="295" stroke="#E65100" stroke-width="1.5" class="arrow-flow" marker-end="url(#arrow-amber)"/>
+  <line x1="680" y1="340" x2="570" y2="265" stroke="#E65100" stroke-width="1" stroke-dasharray="3" marker-end="url(#arrow-amber)"/>
+  <text x="635" y="352" text-anchor="middle" font-size="8" fill="#E65100">writes</text>
+
+  <g class="fade-in">
+    <rect x="790" y="225" width="130" height="45" rx="6" fill="url(#g-red)" stroke="#C62828" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="855" y="248" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Price Rules</text>
+    <text x="855" y="263" text-anchor="middle" font-size="9" fill="#FFCDD2">GET/POST /api/price_rules</text>
+  </g>
+
+  <line x1="520" y1="278" x2="790" y2="258" stroke="#C62828" stroke-width="1.5" class="arrow-flow" marker-end="url(#arrow-red)"/>
+  <text x="640" y="280" text-anchor="middle" font-size="9" fill="#C62828">price rule engine</text>
+
+  <!-- ===== PHASE 3: PRICE CALC ===== -->
+  <rect x="40" y="375" width="1020" height="170" rx="8" fill="#FFF3E0" stroke="#FFCC80" stroke-width="1.5"/>
+  <rect x="40" y="375" width="16" height="170" rx="8" fill="url(#g-amber)"/>
+  <text x="65" y="395" font-size="13" font-weight="bold" fill="#E65100">3. Price Calculation Engine</text>
+
+  <g class="fade-in">
+    <rect x="70" y="415" width="160" height="80" rx="8" fill="url(#g-red)" stroke="#C62828" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="150" y="440" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">PriceCalculator</text>
+    <text x="150" y="458" text-anchor="middle" font-size="10" fill="#FFCDD2">Formula Engine</text>
+  </g>
+
+  <line x1="230" y1="445" x2="280" y2="445" stroke="#C62828" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-red)"/>
+
+  <g class="fade-in">
+    <rect x="280" y="415" width="200" height="80" rx="8" fill="#fff" stroke="#EF5350" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="380" y="438" text-anchor="middle" font-size="11" font-weight="bold" fill="#C62828">Price Formula</text>
+    <text x="380" y="458" text-anchor="middle" font-size="14" font-family="monospace" fill="#333">{purchase_price} × 1.3 + {margin}</text>
+    <text x="380" y="478" text-anchor="middle" font-size="10" fill="#888">Customizable per rule</text>
+  </g>
+
+  <g class="fade-in pulse">
+    <rect x="530" y="408" width="100" height="32" rx="6" fill="#fff" stroke="#EF5350" stroke-width="1.5"/>
+    <text x="580" y="429" text-anchor="middle" font-size="11" fill="#C62828">Margin %</text>
+  </g>
+  <g class="fade-in pulse-delay">
+    <rect x="530" y="444" width="100" height="32" rx="6" fill="#fff" stroke="#FB8C00" stroke-width="1.5"/>
+    <text x="580" y="465" text-anchor="middle" font-size="11" fill="#E65100">Commission</text>
+  </g>
+  <g class="fade-in pulse-slow">
+    <rect x="530" y="480" width="100" height="32" rx="6" fill="#fff" stroke="#FB8C00" stroke-width="1.5"/>
+    <text x="580" y="501" text-anchor="middle" font-size="11" fill="#E65100">Logistics Cost</text>
+  </g>
+
+  <line x1="480" y1="445" x2="530" y2="424" stroke="#EF5350" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="480" y1="445" x2="530" y2="460" stroke="#EF5350" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="480" y1="445" x2="530" y2="496" stroke="#EF5350" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <line x1="630" y1="450" x2="690" y2="450" stroke="#C62828" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+  <g class="fade-in">
+    <rect x="690" y="425" width="150" height="50" rx="25" fill="url(#g-red)" stroke="#C62828" stroke-width="1" filter="url(#glow)" class="box"/>
+    <text x="765" y="450" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Final Price</text>
+    <text x="765" y="467" text-anchor="middle" font-size="10" fill="#FFCDD2">Ready for publish</text>
+  </g>
+
+  <!-- Arrow from Final Price down to Dashboard in Phase 4 -->
+  <line x1="765" y1="475" x2="765" y2="510" stroke="#00695C" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="765" y1="510" x2="135" y2="510" stroke="#00695C" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="135" y1="510" x2="135" y2="620" stroke="#00695C" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+  <text x="140" y="510" font-size="9" fill="#00695C">user sees final prices in Dashboard</text>
+
+  <!-- ===== PHASE 4: PUBLISH ===== -->
+  <rect x="40" y="560" width="1020" height="240" rx="8" fill="#F3E5F5" stroke="#CE93D8" stroke-width="1.5"/>
+  <rect x="40" y="560" width="16" height="240" rx="8" fill="url(#g-purple)"/>
+  <text x="65" y="580" font-size="13" font-weight="bold" fill="#6A1B9A">4. Publish to Marketplaces</text>
+
+  <!-- Dashboard UI - FIRST box in Phase 4 -->
+  <g class="fade-in glow-pulse">
+    <rect x="70" y="605" width="150" height="65" rx="10" fill="url(#g-teal)" stroke="#00695C" stroke-width="2" filter="url(#shadow)" class="box"/>
+    <text x="145" y="630" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Dashboard UI</text>
+    <text x="145" y="647" text-anchor="middle" font-size="10" fill="#B2DFDB">User sees products</text>
+    <text x="145" y="662" text-anchor="middle" font-size="9" fill="#FFF">clicks "Publish"</text>
+  </g>
+
+  <line x1="220" y1="637" x2="270" y2="637" stroke="#6A1B9A" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-purple)"/>
+  <text x="245" y="630" text-anchor="middle" font-size="9" fill="#6A1B9A">publish</text>
+
+  <!-- Publish Queue -->
+  <g class="fade-in">
+    <rect x="270" y="612" width="130" height="50" rx="8" fill="url(#g-purple)" stroke="#6A1B9A" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="335" y="635" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Publish Queue</text>
+    <text x="335" y="652" text-anchor="middle" font-size="10" fill="#E1BEE7">PublishProductMessage</text>
+  </g>
+
+  <line x1="400" y1="637" x2="450" y2="637" stroke="#6A1B9A" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-purple)"/>
+
+  <!-- Redis -->
+  <g class="fade-in pulse">
+    <rect x="450" y="612" width="110" height="50" rx="8" fill="#FFCC80" stroke="#EF6C00" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="505" y="635" text-anchor="middle" font-size="12" font-weight="bold" fill="#E65100">Redis</text>
+    <text x="505" y="652" text-anchor="middle" font-size="10" fill="#333">Async Queue</text>
+  </g>
+
+  <line x1="560" y1="637" x2="610" y2="637" stroke="#6A1B9A" stroke-width="2" class="arrow-flow" marker-end="url(#arrow-purple)"/>
+
+  <!-- API Service -->
+  <g class="fade-in">
+    <rect x="610" y="612" width="160" height="50" rx="8" fill="url(#g-purple)" stroke="#6A1B9A" stroke-width="1" filter="url(#shadow)" class="box"/>
+    <text x="690" y="635" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">MarketplaceApiService</text>
+    <text x="690" y="652" text-anchor="middle" font-size="10" fill="#E1BEE7">HTTP / JSON</text>
+  </g>
+
+  <line x1="770" y1="623" x2="810" y2="623" stroke="#6A1B9A" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <line x1="770" y1="637" x2="810" y2="675" stroke="#6A1B9A" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <line x1="770" y1="650" x2="810" y2="735" stroke="#6A1B9A" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- Marketplace boxes -->
+  <g class="fade-in" style="animation-delay: 0.1s">
+    <rect x="810" y="598" width="150" height="50" rx="8" fill="#fff" stroke="#1565C0" stroke-width="2" filter="url(#shadow)"/>
+    <text x="885" y="620" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565C0">Wildberries</text>
+    <text x="885" y="638" text-anchor="middle" font-size="9" fill="#888">api.wildberries.ru</text>
+  </g>
+
+  <g class="fade-in" style="animation-delay: 0.2s">
+    <rect x="810" y="652" width="150" height="50" rx="8" fill="#fff" stroke="#E65100" stroke-width="2" filter="url(#shadow)"/>
+    <text x="885" y="674" text-anchor="middle" font-size="13" font-weight="bold" fill="#E65100">Ozon</text>
+    <text x="885" y="692" text-anchor="middle" font-size="9" fill="#888">api.ozon.ru</text>
+  </g>
+
+  <g class="fade-in" style="animation-delay: 0.3s">
+    <rect x="810" y="708" width="150" height="50" rx="8" fill="#fff" stroke="#C62828" stroke-width="2" filter="url(#shadow)"/>
+    <text x="885" y="730" text-anchor="middle" font-size="13" font-weight="bold" fill="#C62828">Yandex.Market</text>
+    <text x="885" y="748" text-anchor="middle" font-size="9" fill="#888">api.market.yandex.ru</text>
+  </g>
+
+  <!-- Status arrows back to Dashboard -->
+  <line x1="885" y1="648" x2="145" y2="670" stroke="#6A1B9A" stroke-width="1" stroke-dasharray="3" marker-end="url(#arrow)"/>
+  <line x1="885" y1="702" x2="145" y2="670" stroke="#6A1B9A" stroke-width="1" stroke-dasharray="3"/>
+  <text x="520" y="685" text-anchor="middle" font-size="9" fill="#6A1B9A">status updates (published/failed)</text>
+
+  <!-- Legend -->
+  <g transform="translate(70, 780)">
+    <rect x="0" y="0" width="900" height="28" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+    <rect x="10" y="7" width="14" height="14" rx="2" fill="url(#g-blue)"/>
+    <text x="28" y="18" font-size="10" fill="#555">Auth</text>
+    <rect x="70" y="7" width="14" height="14" rx="2" fill="url(#g-green)"/>
+    <text x="88" y="18" font-size="10" fill="#555">Products</text>
+    <rect x="150" y="7" width="14" height="14" rx="2" fill="url(#g-amber)"/>
+    <text x="168" y="18" font-size="10" fill="#555">Import</text>
+    <rect x="220" y="7" width="14" height="14" rx="2" fill="url(#g-red)"/>
+    <text x="238" y="18" font-size="10" fill="#555">Pricing</text>
+    <rect x="290" y="7" width="14" height="14" rx="2" fill="url(#g-purple)"/>
+    <text x="308" y="18" font-size="10" fill="#555">Publish</text>
+    <rect x="365" y="7" width="14" height="14" rx="2" fill="#FFCC80" stroke="#EF6C00" stroke-width="1"/>
+    <text x="383" y="18" font-size="10" fill="#555">Redis Queue</text>
+    <rect x="465" y="7" width="14" height="14" rx="2" fill="#FFF9C4" stroke="#F9A825" stroke-width="1"/>
+    <text x="483" y="18" font-size="10" fill="#555">Database</text>
+    <line x1="555" y1="14" x2="585" y2="14" stroke="#555" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="593" y="18" font-size="10" fill="#555">Async flow</text>
+    <line x1="665" y1="14" x2="685" y2="14" stroke="#555" stroke-width="2" class="arrow-flow"/>
+    <text x="693" y="18" font-size="10" fill="#555">Animated flow</text>
+    <rect x="780" y="7" width="14" height="14" rx="2" fill="#4CAF50"/>
+    <text x="798" y="18" font-size="10" fill="#555">Success</text>
+  </g>
+</svg>

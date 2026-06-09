@@ -2,6 +2,10 @@
 
 Internal tool for managing prices and product cards on Wildberries, Ozon, and Yandex.Market.
 
+## Architecture &amp; Process Flow
+
+![Architecture Diagram](docs/architecture.svg)
+
 ## Stack
 
 - **Backend**: Symfony 6.4 + API Platform 3 + Doctrine ORM + PostgreSQL 15
